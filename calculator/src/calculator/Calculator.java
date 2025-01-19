@@ -105,8 +105,14 @@ public class Calculator {
 
 	private void inputNum(Double value) {
 		queue.setNum(value);
-		msg += value + " ";
+		setMsg(value);
 		Screen.getInstance().show(msg);
+	}
+	
+	private void setMsg(Double value) {
+		String temp = value + "";
+		temp = temp.substring(0,temp.length()-2);
+		msg += temp;
 	}
 
 	private void inputSymbol(Double value) {
@@ -114,7 +120,7 @@ public class Calculator {
 			isEnd = true;
 			return;
 		}
-		msg += getSymbol(value) + " ";
+		msg += " " + getSymbol(value) + " ";
 		Screen.getInstance().show(msg);
 	}
 
